@@ -1,0 +1,31 @@
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title><?= $feed->title ?></title>
+        <link><?= $feed->url ?></link>
+        <description><?= $feed->description ?></description>
+        <language>id-id</language>
+        <lastBuildDate><?= $last_update ?></lastBuildDate>
+        <image>
+            <url><?= $this->asset('logo/72x72.png'); ?></url>
+            <link><?= $feed->url ?></link>
+            <title><?= $feed->title ?></title>
+        </image>
+        
+        <?php foreach($posts as $post): ?>
+        <item>
+            <title><?= $post->title->safe ?></title>
+            <link><?= $post->page ?></link>
+            <guid><?= $post->page ?></guid>
+            <pubDate><?= $post->published->format('r') ?></pubDate>
+            <author><?= $post->user->fullname ?></author>
+            <description><?= $post->meta_description ?></description>
+            <content:encoded>
+                <![CDATA[
+<?= $post->i_content ?>
+
+                ]]>
+            </content:encoded>
+        </item>
+        <?php endforeach; ?>
+    </channel>
+</rss>

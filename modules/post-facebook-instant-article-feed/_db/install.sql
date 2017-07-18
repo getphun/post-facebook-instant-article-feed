@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS `post_fb_instant_article` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `post` INTEGER NOT NULL,
+    `content` TEXT,
+    `created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
