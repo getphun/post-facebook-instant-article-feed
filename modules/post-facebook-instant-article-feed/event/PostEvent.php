@@ -13,9 +13,9 @@ class PostEvent{
     
     static function general($object, $old=null){
         if($old)
-            PFbIArticle::remove($old->id);
+            PFbIArticle::remove(['post'=>$old->id]);
         elseif($object)
-            PFbIArticle::remove($object->id);
+            PFbIArticle::remove(['post'=>$object->id]);
     }
     
     static function updated($object, $old=null){
